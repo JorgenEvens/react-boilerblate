@@ -1,0 +1,44 @@
+{
+    "ignore": "*.json",
+    "presets": [
+        "es2015",
+        "stage-0",
+        "react"
+    ],
+    plugins: [
+        "transform-decorators-legacy",
+        "transform-runtime",
+        "transform-strict-mode",
+        "transform-undefined-to-void",
+        "transform-inline-environment-variables",
+        "jsx-control-statements/babel",
+        "transform-dev"
+    ],
+    "env": {
+        "production": {
+            "compact": true,
+            plugins: [
+                "transform-react-constant-elements",
+                "transform-react-inline-elements",
+                "transform-merge-sibling-variables",
+                "transform-minify-booleans",
+                "transform-remove-console",
+                "transform-remove-debugger",
+                "transform-simplify-comparison-operators"
+            ]
+        },
+        "development": {
+            "sourceMaps": "inline",
+            "plugins": [
+                ["react-transform", {
+                    "transforms": [{
+                        "transform": "react-transform-hmr",
+
+                        "imports": ["react"],
+                        "locals": ["module"]
+                    }]
+                }]
+            ]
+        }
+    }
+}
